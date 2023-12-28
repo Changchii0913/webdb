@@ -5,7 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import chang.webdb.Data.DBProvider;
-import chang.webdb.model.Orders;
+import chang.webdb.model.Order;
 import chang.webdb.service.DBService;
 
 import java.sql.ResultSet;
@@ -37,7 +37,7 @@ public class ReportController {
     public String getOrderList(Model model) {
         // 提供一個訂單總覽  點選其中一筆 在顯示 訂單明細
         ResultSet rs = null;
-        List<Orders> orders;
+        List<Order> orders;
         String sql = """
                 SELECT
                   orders.orderNumber,

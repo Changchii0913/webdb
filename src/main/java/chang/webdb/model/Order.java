@@ -15,10 +15,12 @@ import java.util.Date;
 @NoArgsConstructor
 @Setter
 @Getter
-public class Orders {
-    int orderNumber;
-    Date orderDate;
-    Date requiredDate;
-    String comments;
-    String companyName;
+public class Order {
+    private int orderNumber;
+    private Date orderDate;
+    private Date requiredDate;
+    private Date shippedDate;
+    private String status;
+    private String comments;
+    private int customerNumber;
 }

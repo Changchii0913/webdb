@@ -1,5 +1,5 @@
 package chang.webdb.Data;
-import chang.webdb.model.Orders;
+import chang.webdb.model.Order;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -19,12 +19,12 @@ public class DBProvider {
         }
     }
 
-    public List<Orders> getOrderData(String sql ) {
+    public List<Order> getOrderData(String sql ) {
         Connection con = null;
         Statement stmt = null;
         ResultSet rs = null;
 
-        ArrayList<Orders> orders = new ArrayList<>();
+        ArrayList<Order> orders = new ArrayList<>();
 
         try {
             con = DriverManager.getConnection("jdbc:mariadb://localhost/classicmodels","Chang","Chang0913");
@@ -32,7 +32,7 @@ public class DBProvider {
             rs = stmt.executeQuery(sql);
             // 加入此段 造成此 method 變成專用功能
             while(rs.next()) {
-                Orders o = new Orders();
+                Order o = new Order();
                 o.setOrderNumber( rs.getInt("orderNumber"));
                 o.setOrderDate( rs.getDate("orderDate"));
                 o.setRequiredDate(rs.getDate("requiredDate"));
@@ -53,12 +53,12 @@ public class DBProvider {
     // 請提供一個 api 讓前端可以傳入任何 sql 然後依照指定的 class  type 回傳資料集合
 
 
-    public List<Orders> getOrderDetailData(String sql ) {
+    public List<Order> getOrderDetailData(String sql ) {
         Connection con = null;
         Statement stmt = null;
         ResultSet rs = null;
 
-        ArrayList<Orders> orders = new ArrayList<>();
+        ArrayList<Order> orders = new ArrayList<>();
 
         try {
             con = DriverManager.getConnection("jdbc:mariadb://localhost/classicmodels","Chang","Chang0913");
@@ -66,7 +66,7 @@ public class DBProvider {
             rs = stmt.executeQuery(sql);
             // 加入此段 造成此 method 變成專用功能
             while(rs.next()) {
-                Orders o = new Orders();
+                Order o = new Order();
                 o.setOrderNumber( rs.getInt("orderNumber"));
                 o.setOrderDate( rs.getDate("orderDate"));
                 o.setRequiredDate(rs.getDate("requiredDate"));
@@ -83,12 +83,12 @@ public class DBProvider {
         }
         return orders;
     }
-    public List<Orders> getCustomerData(String sql ) {
+    public List<Order> getCustomerData(String sql ) {
         Connection con = null;
         Statement stmt = null;
         ResultSet rs = null;
 
-        ArrayList<Orders> orders = new ArrayList<>();
+        ArrayList<Order> orders = new ArrayList<>();
 
         try {
             con = DriverManager.getConnection("jdbc:mariadb://localhost/classicmodels","Chang","Chang0913");
@@ -96,7 +96,7 @@ public class DBProvider {
             rs = stmt.executeQuery(sql);
             // 加入此段 造成此 method 變成專用功能
             while(rs.next()) {
-                Orders o = new Orders();
+                Order o = new Order();
                 o.setOrderNumber( rs.getInt("orderNumber"));
                 o.setOrderDate( rs.getDate("orderDate"));
                 o.setRequiredDate(rs.getDate("requiredDate"));
