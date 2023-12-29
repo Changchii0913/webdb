@@ -1,12 +1,13 @@
 package chang.webdb.controller;
 
+import chang.webdb.model.Orders_demo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import chang.webdb.Data.DBProvider;
-import chang.webdb.model.Order;
 import chang.webdb.service.DBService;
+import chang.webdb.service.CustomerService;
 
 import java.sql.ResultSet;
 import java.util.List;
@@ -19,6 +20,9 @@ public class ReportController {
     // 託管版本
     @Autowired
     DBService dbService;
+
+    @Autowired
+    CustomerService customerService;
 
     @GetMapping("/test123")
     public String sayHello(Model model) {
@@ -37,7 +41,7 @@ public class ReportController {
     public String getOrderList(Model model) {
         // 提供一個訂單總覽  點選其中一筆 在顯示 訂單明細
         ResultSet rs = null;
-        List<Order> orders;
+        List<Orders_demo> orders;
         String sql = """
                 SELECT
                   orders.orderNumber,
@@ -58,11 +62,6 @@ public class ReportController {
         return "orders_list";
     }
 
-
-    public String getOrderDetails() {
-        // 提供一個訂單總覽  點選其中一筆 在顯示 訂單明細
-        return "orderDetail";
-    }
 
 
 }

@@ -10,9 +10,13 @@ public class OrderMapper implements RowMapper<Order> {
     @Override
     public Order mapRow(ResultSet rs,int rowNum)throws SQLException{
         Order order = new Order();
-        order.getOrderNumber(rs.getInt("orderNumber"));
-        order.getOrderDate(rs.getDate("orderDate"));
-        order.getRequiredDate(rs.getDate("requireDate"));
-        order.getshippedDate(rs.getDate())
+        order.setOrderNumber(rs.getInt("orderNumber"));
+        order.setOrderDate(rs.getDate("orderDate"));
+        order.setRequiredDate(rs.getDate("requireDate"));
+        order.setShippedDate(rs.getDate("shippedDate"));
+        order.setComments(rs.getString("comments"));
+        order.setCustomerNumber(rs.getInt("customerNumber"));
+        order.setStatus(rs.getString("status"));
+        return  order;
     }
 }
