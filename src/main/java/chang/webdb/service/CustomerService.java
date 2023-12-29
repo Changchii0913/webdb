@@ -9,7 +9,7 @@ import chang.webdb.model.Customer;
 import java.util.List;
 
 @Service
-public class CustomerService{
+public class    CustomerService{
 
     @Autowired
     JdbcTemplate jdbcTemplate;
