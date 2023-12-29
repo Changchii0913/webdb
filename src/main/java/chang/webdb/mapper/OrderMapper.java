@@ -12,7 +12,7 @@ public class OrderMapper implements RowMapper<Order> {
         Order order = new Order();
         order.setOrderNumber(rs.getInt("orderNumber"));
         order.setOrderDate(rs.getDate("orderDate"));
-        order.setRequiredDate(rs.getDate("requireDate"));
+        order.setRequiredDate(rs.getDate("requiredDate"));
         order.setShippedDate(rs.getDate("shippedDate"));
         order.setComments(rs.getString("comments"));
         order.setCustomerNumber(rs.getInt("customerNumber"));
